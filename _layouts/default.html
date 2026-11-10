@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-content">
+        <div class="intro">
+          <picture class="profile-photo">
+            <source srcset="{{ '/assets/images/profile-1x.webp' | relative_url }} 1x, {{ '/assets/images/profile-2x.webp' | relative_url }} 2x" type="image/webp">
+            <img src="{{ '/assets/images/profile-1x.jpg' | relative_url }}" 
+                 srcset="{{ '/assets/images/profile-2x.jpg' | relative_url }} 2x"
+                 alt="Jimmy Akl"
+                 width="200"
+                 height="200"
+                 loading="eager">
+          </picture>
+          <h1><a href="{{ '/' | relative_url }}" class="name-link">Jimmy Akl</a></h1>
+          <p class="title">Software Engineer</p>
+          <p class="subtitle">ActiveViam · Paris</p>
+          <p class="bio">Enjoy understanding and solving problems using code.</p>
+        </div>
+        
+        <nav class="main-nav">
+          <a href="{{ '/' | relative_url }}" class="nav-link {% if page.url == '/' %}active{% endif %}">
+            <span class="nav-number">01</span>
+            <span class="nav-text">About</span>
+          </a>
+          <a href="{{ '/blog' | relative_url }}" class="nav-link {% if page.url contains '/blog' %}active{% endif %}">
+            <span class="nav-number">02</span>
+            <span class="nav-text">Blog</span>
+          </a>
+        </nav>
+        
+        <div class="social-links">
+          <a href="https://github.com/JimmyAkl" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/jimmyakl/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+        </div>
+        
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </aside>
+    
+    <main class="content">
+      {{ content }}
+      
+      <footer class="footer">
+        <p>Built with <a href="https://jekyllrb.com/" target="_blank" rel="noopener">Jekyll</a> and deployed on <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>.</p>
+      </footer>
+    </main>
+  </div>
+  
+  <script>
+    (function() {
+      const STORAGE_KEY = 'theme-preference';
+      
+      function getColorPreference() {
+        if (localStorage.getItem(STORAGE_KEY)) {
+          return localStorage.getItem(STORAGE_KEY);
+        }
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      
+      function setPreference(theme) {
+        localStorage.setItem(STORAGE_KEY, theme);
+        reflectPreference(theme);
+      }
+      
+      function reflectPreference(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        document.querySelector('.theme-toggle')?.setAttribute('aria-label', 
+          theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+      }
+      
+      reflectPreference(getColorPreference());
+      
+      window.addEventListener('load', function() {
+        reflectPreference(getColorPreference());
+        
+        document.querySelector('.theme-toggle')?.addEventListener('click', function() {
+          const currentTheme = getColorPreference();
+          const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+          setPreference(newTheme);
+        });
+      });
+      
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function({matches}) {
+        if (!localStorage.getItem(STORAGE_KEY)) {
+          reflectPreference(matches ? 'dark' : 'light');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

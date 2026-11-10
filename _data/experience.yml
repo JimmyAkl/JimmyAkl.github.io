@@ -1,0 +1,43 @@
+- company: ActiveViam
+  role: Software Engineer
+  period: Nov 2025 – Present
+  location: Paris
+  description:
+  tags:
+    - Java
+    - Performance
+    - Analytics
+
+- company: Outsight
+  role: Software Engineer
+  period: Oct 2023 – Nov 2025
+  location: Paris
+  description: Unity AI for realistic and dynamic crowd simulations; performance and memory optimization; project architecture and coding conventions
+  tags:
+    - Unity
+    - C#
+    - AI
+    - Performance
+    - Architecture
+
+- company: Outsight
+  role: Software Engineer
+  period: May 2023 – Oct 2023
+  location: Paris
+  description: LiDAR Simulation Tool in Unity C#; new features, improved LiDAR/laser equation simulation, UI/UX improvements, unit tests and CI/CD pipeline for build/test/deploy
+  tags:
+    - Unity
+    - C#
+    - LiDAR
+    - CI/CD
+    - Testing
+
+- company: Toonslab (GraalOnline)
+  role: Game Developer
+  period: Nov 2020 – Oct 2022
+  location: Remote
+  description: Developing a 3D version of GraalOnline
+  tags:
+    - Game Development
+    - 3D
+    - MMO
