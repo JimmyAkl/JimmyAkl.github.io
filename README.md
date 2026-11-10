@@ -31,11 +31,13 @@ bundle exec jekyll build
 
 The built site will be in the `_site` directory.
 
-## Adding a New Blog Post
+## Content Management
+
+### Adding a New Blog Post
 
 Blog posts are written in Markdown and stored in the `_posts` directory.
 
-### File Naming Convention
+#### File Naming Convention
 
 Posts must follow this exact naming format:
 
@@ -48,7 +50,7 @@ YYYY-MM-DD-title-with-hyphens.md
 - `2024-12-25-christmas-thoughts.md`
 - `2025-01-15-learning-rust.md`
 
-### Front Matter
+#### Front Matter
 
 Every post must start with YAML front matter between triple dashes:
 
@@ -60,7 +62,7 @@ date: 2024-11-10
 ---
 ```
 
-### Full Example Post
+#### Full Example Post
 
 Create a file `_posts/2024-11-10-my-new-post.md`:
 
@@ -91,7 +93,7 @@ def hello():
 - Item three
 ```
 
-### Adding Images to Posts
+#### Adding Images to Posts
 
 1. Create an `assets/images` directory if it doesn't exist:
    ```bash
@@ -105,13 +107,7 @@ def hello():
    ![Image description](/assets/images/my-image.png)
    ```
 
-### Post Visibility
-
-- Posts are automatically sorted by date (newest first)
-- Only the 5 most recent posts appear on the home page
-- All posts are visible on the `/blog` page
-
-## Updating Experience
+### Updating Experience
 
 Edit the `_data/experience.yml` file to add or modify work experience entries:
 
@@ -121,23 +117,41 @@ Edit the `_data/experience.yml` file to add or modify work experience entries:
   period: Start Date – End Date
   location: City, Country
   description: Brief description of your work (optional)
+  tags:
+    - Technology
+    - Skill
+    - Domain
 ```
 
-## Structure
+The `tags` field is optional and displays as colored pills on each experience card.
+
+### Updating Education
+
+Edit the `_data/education.yml` file to add or modify education entries:
+
+```yaml
+- institution: University Name
+  degree: Degree Title
+  period: Start Year–End Year
+  location: City, Country
+```
+
+## Site Structure
 
 ```
 .
 ├── _config.yml           # Site configuration
 ├── _data/
-│   └── experience.yml    # Work experience data
+│   ├── experience.yml    # Work experience data
+│   └── education.yml     # Education data
 ├── _layouts/
-│   ├── default.html      # Base layout
+│   ├── default.html      # Base layout with sidebar
 │   └── post.html         # Blog post layout
 ├── _posts/               # Blog posts (Markdown files)
 ├── assets/
 │   ├── css/
 │   │   └── style.css     # Main stylesheet
-│   └── images/           # Images for posts
+│   └── images/           # Images for posts (create as needed)
 ├── index.html            # Home page
 ├── blog.html             # Blog listing page
 ├── Gemfile               # Ruby dependencies
@@ -146,12 +160,24 @@ Edit the `_data/experience.yml` file to add or modify work experience entries:
 
 ## Features
 
-- ✅ Clean, minimal design
-- ✅ Responsive layout
-- ✅ Dark/light mode (follows system preference)
+- ✅ Modern, standout design with sticky sidebar on desktop
+- ✅ Refined typography using Inter font
+- ✅ Accent color and polished dark mode
+- ✅ Dark/light mode toggle (follows system preference by default)
+- ✅ Fully responsive mobile layout
+- ✅ Experience cards with tech/skill tags
 - ✅ Blog with Markdown support
-- ✅ Experience section from data file
-- ✅ Fast load times (no heavy JavaScript)
+- ✅ Syntax highlighting for code blocks
+- ✅ Hover states and smooth transitions
+- ✅ Fast load times with minimal JavaScript
+
+## Design Inspiration
+
+The design draws inspiration from several standout developer portfolios:
+- **brittanychiang.com** — Sticky sidebar layout
+- **leerob.io** — Clean typography and minimal approach
+- **joshwcomeau.com** — Polished dark mode and interactive elements
+- **paco.me** — Typography and spacing refinement
 
 ## GitHub Pages Setup
 
@@ -165,6 +191,21 @@ This site is automatically deployed by GitHub Pages. To enable it:
 4. Save the settings
 
 GitHub Pages will automatically rebuild the site whenever you push changes to the `main` branch.
+
+## Technical Details
+
+- Built with Jekyll 3.x (via the `github-pages` gem for full compatibility)
+- Uses Rouge for syntax highlighting
+- Includes `jekyll-feed` and `jekyll-seo-tag` plugins
+- Minimal vanilla JavaScript only for dark mode toggle
+- No build tooling beyond Jekyll required
+- All styles in a single CSS file for simplicity
+
+## Browser Support
+
+- Modern browsers (Chrome, Firefox, Safari, Edge)
+- Responsive design tested at 320px minimum width
+- Mobile-optimized with proper tap targets (44px minimum)
 
 ## License
 
