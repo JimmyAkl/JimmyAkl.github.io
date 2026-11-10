@@ -1,0 +1,283 @@
+/* Color scheme with system preference support */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --text-secondary: #666666;
+  --link-color: #0066cc;
+  --link-hover: #0052a3;
+  --border-color: #e0e0e0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --link-color: #4da3ff;
+    --link-hover: #7dbeff;
+    --border-color: #333333;
+  }
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  margin-top: 2.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* Links */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+/* Header & Navigation */
+header {
+  margin-bottom: 3rem;
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+nav a {
+  font-weight: 500;
+}
+
+/* Intro section */
+.intro {
+  margin-bottom: 3rem;
+}
+
+.intro h1 {
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.bio {
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+.links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.links a {
+  font-weight: 500;
+}
+
+/* Experience section */
+.experience {
+  margin-bottom: 3rem;
+}
+
+.experience-item {
+  margin-bottom: 1.75rem;
+}
+
+.experience-header {
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
+}
+
+.experience-meta {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.experience-description {
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+/* Education section */
+.education {
+  margin-bottom: 3rem;
+}
+
+.education-item {
+  margin-bottom: 1.5rem;
+}
+
+.education-header {
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
+}
+
+.education-meta {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+/* Posts section */
+.recent-posts, .blog {
+  margin-bottom: 3rem;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+}
+
+.post-list li {
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.post-list li:last-child {
+  border-bottom: none;
+}
+
+.post-list a {
+  font-size: 1.05rem;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.post-date {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.post-excerpt {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+/* Post page */
+.post {
+  margin-bottom: 3rem;
+}
+
+.post-header {
+  margin-bottom: 2rem;
+}
+
+.post-header h1 {
+  margin-bottom: 0.5rem;
+}
+
+.post-header time {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.post-content {
+  margin-bottom: 2rem;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+  border-radius: 4px;
+}
+
+.post-content pre {
+  background-color: var(--border-color);
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.post-content code {
+  font-family: "SF Mono", Consolas, Monaco, "Courier New", monospace;
+  font-size: 0.9em;
+}
+
+.post-content ul, .post-content ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.post-nav {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+/* Footer */
+footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 1.5rem 1rem;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.35rem;
+  }
+}

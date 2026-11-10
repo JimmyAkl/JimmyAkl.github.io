@@ -1,0 +1,68 @@
+---
+layout: default
+---
+
+<section class="intro">
+  <h1>Jimmy Akl</h1>
+  <p class="subtitle">Software Engineer at ActiveViam, Paris</p>
+  <p class="bio">Enjoy understanding and solving problems using code.</p>
+  
+  <div class="links">
+    <a href="https://github.com/JimmyAkl" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/jimmyakl/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</section>
+
+<section class="experience">
+  <h2>Experience</h2>
+  {% for job in site.data.experience %}
+  <div class="experience-item">
+    <div class="experience-header">
+      <strong>{{ job.company }}</strong> — {{ job.role }}
+    </div>
+    <div class="experience-meta">
+      {{ job.period }} | {{ job.location }}
+    </div>
+    {% if job.description %}
+    <p class="experience-description">{{ job.description }}</p>
+    {% endif %}
+  </div>
+  {% endfor %}
+</section>
+
+<section class="education">
+  <h2>Education</h2>
+  <div class="education-item">
+    <div class="education-header">
+      <strong>CentraleSupélec</strong>
+    </div>
+    <div class="education-meta">
+      Double Degree in Computer Software Engineering (2021–2023)
+    </div>
+  </div>
+  <div class="education-item">
+    <div class="education-header">
+      <strong>Saint Joseph University of Beirut (USJ ESIB)</strong>
+    </div>
+    <div class="education-meta">
+      Masters in Software Engineering (2017–2023)
+    </div>
+  </div>
+</section>
+
+<section class="recent-posts">
+  <h2>Recent Posts</h2>
+  {% if site.posts.size > 0 %}
+  <ul class="post-list">
+    {% for post in site.posts limit:5 %}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <span class="post-date">{{ post.date | date: "%b %d, %Y" }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+  <p><a href="{{ '/blog' | relative_url }}">View all posts →</a></p>
+  {% else %}
+  <p>No posts yet.</p>
+  {% endif %}
+</section>
