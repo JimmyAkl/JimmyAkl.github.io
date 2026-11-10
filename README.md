@@ -117,13 +117,21 @@ Edit the `_data/experience.yml` file to add or modify work experience entries:
   period: Start Date – End Date
   location: City, Country
   description: Brief description of your work (optional)
+  highlights:
+    - First key accomplishment or responsibility
+    - Second key accomplishment or responsibility
+    - Third key accomplishment or responsibility
   tags:
     - Technology
     - Skill
     - Domain
 ```
 
-The `tags` field is optional and displays as colored pills on each experience card.
+**Fields:**
+- `company`, `role`, `period`, `location`: Required
+- `description`: Optional one-line summary
+- `highlights`: Optional bulleted list of key accomplishments or responsibilities
+- `tags`: Optional list of technologies/skills displayed as colored pills on each experience card
 
 ### Updating Education
 
