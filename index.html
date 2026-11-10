@@ -8,8 +8,8 @@ layout: default
     About
   </h2>
   <div class="section-content">
-    <p class="lead">I'm a software engineer based in Paris, currently working at ActiveViam on high-performance analytics software. I enjoy understanding and solving complex problems using code.</p>
-    <p>My experience spans game development, AI simulations, and performance optimization. I'm particularly interested in building systems that are both elegant and efficient.</p>
+    <p class="lead">I'm a software engineer based in Paris, currently a frontend developer on Atoti UI at ActiveViam. Previously, I worked on Unity/C# simulations at Outsight—LiDAR sensor modeling and realistic crowd behavior for airports.</p>
+    <p>I enjoy turning complex real-world models and data into reliable, usable software.</p>
   </div>
 </section>
 
@@ -26,6 +26,13 @@ layout: default
         <h3 class="experience-role">{{ job.role }} · {{ job.company }}</h3>
         {% if job.description %}
         <p class="experience-description">{{ job.description }}</p>
+        {% endif %}
+        {% if job.highlights %}
+        <ul class="experience-highlights">
+          {% for highlight in job.highlights %}
+          <li>{{ highlight }}</li>
+          {% endfor %}
+        </ul>
         {% endif %}
         {% if job.tags %}
         <div class="tags">

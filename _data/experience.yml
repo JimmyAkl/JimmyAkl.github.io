@@ -1,18 +1,27 @@
 - company: ActiveViam
-  role: Software Engineer
+  role: Software Engineer (Frontend)
   period: Nov 2025 – Present
   location: Paris
-  description:
+  description: "Frontend developer on Atoti UI, an analytics dashboard that plugs into OLAP cubes to explore multidimensional data across different cubes, helping banks and financial institutions make faster decisions around risk."
+  highlights:
+    - Building new UI features on top of backend endpoints, e.g. cross-cube calculations visualised in table and chart widgets
+    - Improving UX and accessibility
+    - Refactoring older code into reusable components
   tags:
-    - Java
-    - Performance
-    - Analytics
+    - Frontend
+    - TypeScript
+    - React
+    - Data visualisation
+    - Accessibility
 
 - company: Outsight
   role: Software Engineer
   period: Oct 2023 – Nov 2025
   location: Paris
   description: Unity AI for realistic and dynamic crowd simulations; performance and memory optimization; project architecture and coding conventions
+  highlights:
+    - Dynamic crowd simulation with real-time point-cloud capture generating multiple frames
+    - Unity pathfinding alone wasn't enough for realistic airport crowds, so built agent goals and scenarios for waiting times, queue formation (straight, zigzag) and queue switching, based on real-life data
   tags:
     - Unity
     - C#
@@ -25,6 +34,9 @@
   period: May 2023 – Oct 2023
   location: Paris
   description: LiDAR Simulation Tool in Unity C#; new features, improved LiDAR/laser equation simulation, UI/UX improvements, unit tests and CI/CD pipeline for build/test/deploy
+  highlights:
+    - Imported large point clouds without heap spikes using lazy loading, chunking without losing precision, downloading over frames, and reducing bundle size to free runtime memory
+    - Simulated sensor laser equations even without the manufacturer's exact equations, validating against real LiDAR scans iteratively and tracking accuracy metrics
   tags:
     - Unity
     - C#
