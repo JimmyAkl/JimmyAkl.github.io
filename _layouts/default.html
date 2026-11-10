@@ -15,6 +15,15 @@
     <aside class="sidebar">
       <div class="sidebar-content">
         <div class="intro">
+          <picture class="profile-photo">
+            <source srcset="{{ '/assets/images/profile-1x.webp' | relative_url }} 1x, {{ '/assets/images/profile-2x.webp' | relative_url }} 2x" type="image/webp">
+            <img src="{{ '/assets/images/profile-1x.jpg' | relative_url }}" 
+                 srcset="{{ '/assets/images/profile-2x.jpg' | relative_url }} 2x"
+                 alt="Jimmy Akl"
+                 width="200"
+                 height="200"
+                 loading="eager">
+          </picture>
           <h1><a href="{{ '/' | relative_url }}" class="name-link">Jimmy Akl</a></h1>
           <p class="title">Software Engineer</p>
           <p class="subtitle">ActiveViam · Paris</p>
